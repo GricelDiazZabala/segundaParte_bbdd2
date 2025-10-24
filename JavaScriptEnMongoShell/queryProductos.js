@@ -16,6 +16,8 @@ Resolver utilizando forEach()
 
 //load("JavaScriptEnMongoShell/insertProductos.js")
 
+//use PRODUCTOS
+
 print("--- Precio Mínimo ---");
 let precioMin = db.productos.aggregate([{$project : {nombre: 1,precio:1,_id:0}}, {$sort : {precio : 1}},{$limit : 1}]);
 precioMin.forEach(function(producto) {
@@ -42,4 +44,12 @@ prodsOrdenados.forEach(function(producto) {
   printjson(producto);
 });
 
-//no supe hacer "Mostrar el producto más caro por cada categoría"
+
+print("\n--- Producto Más Caro por Categoría ---");
+let categorias = db.productos.aggregate([{$group : {_id : "$categoria"}}]);
+categorias.forEach(function(categoria) {
+  let productoCaro = db.productos.aggregate([{$match : {categoria : categoria._id}},{$project : {nombre: 1,precio:1,categoria:1,_id:0}},{$sort : {precio : -1}},{$limit : 1}]); 
+  productoCaro.forEach(function(producto) {
+    printjson(producto);
+  });
+});

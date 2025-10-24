@@ -51,9 +51,9 @@ print(db.getCollectionNames());
 cursor = db.articulos.find();
 
 /*Acceder en forma aleatoria al contenido de un cursor, a través del método toArray() de los cursores.*/ 
-var documentArray = cursor.toArray();
-var count = documentArray.length; 
-var document = documentArray[1]; 
+let documentArray = cursor.toArray();
+let count = documentArray.length; 
+let document = documentArray[1]; 
 print("Muestro el elemento en la posicion 1");
 printjson(document);
 print("Recorro el array");
@@ -70,7 +70,7 @@ for (i = 0; i < count; i++) {
 
 db.empleados.find().forEach(function(empleado) { 
   print("Empleado: " + empleado.nombre); 
-  var totalHoras = 0;
+  let totalHoras = 0;
   empleado.proyectos.forEach(function(proyecto) {
     print(" Proyecto: " + proyecto.nombre + " Horas: " + proyecto.horas); 
     totalHoras += proyecto.horas;
@@ -122,15 +122,15 @@ db.empleados.insertMany([
 // Ejercicio de Aplicación: Método hasNext() / next()
 //================================================================
 
-var cursor = db.empleados.find(); 
+let cursor = db.empleados.find(); 
 while (cursor.hasNext()) { 
-  var empleado = cursor.next();
+  let empleado = cursor.next();
   print("Empleado: " + empleado.nombre); 
-  var totalHoras = 0; 
+  let totalHoras = 0; 
 
   // Bucle 'for' anidado
-  for (var i = 0; i < empleado.proyectos.length; i++) {
-    var proyecto = empleado.proyectos[i]; 
+  for (let i = 0; i < empleado.proyectos.length; i++) {
+    let proyecto = empleado.proyectos[i]; 
     print("Proyecto: " + proyecto.nombre + " | Horas: " + proyecto.horas); 
   }
 
@@ -149,16 +149,16 @@ while (cursor.hasNext()) {
 //================================================================
 
 // Convertimos la colección a un array
-var empleados = db.empleados.find().toArray();
+let empleados = db.empleados.find().toArray();
 // Recorremos con un for tradicional
-for (var i = 0; i < empleados.length; i++) {
-  var empleado = empleados[i];
+for (let i = 0; i < empleados.length; i++) {
+  let empleado = empleados[i];
   print("Empleado: " + empleado.nombre);
-  var totalHoras = 0;
+  let totalHoras = 0;
 
   // Recorremos los proyectos
-  for (var j = 0; j < empleado.proyectos.length; j++) {
-    var proyecto = empleado.proyectos[j];
+  for (let j = 0; j < empleado.proyectos.length; j++) {
+    let proyecto = empleado.proyectos[j];
     print(" Proyecto: " + proyecto.nombre + " | Horas: " + proyecto.horas);
     totalHoras += proyecto.horas; 
 

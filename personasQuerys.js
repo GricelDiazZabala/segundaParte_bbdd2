@@ -5,7 +5,7 @@ nombre y edad de la consulta
 */
 
 print('find query projection ')
-var cursor = db.personas.find(
+let cursor = db.personas.find(
 { edad: {$gt:50} }, // filtro query
 { nombre: 1, edad: 1, _id:0 } // projection -> 1: sale, 0: no sale
 )
@@ -24,7 +24,7 @@ pasa un -1 se ordena en forma descendente):
 */
 
 print('find query projection')
-var cursor = db.personas.find(
+let cursor = db.personas.find(
 { edad: {$gt:50} }, // filtro query
 { nombre: 1, edad: 1, _id:0 } // projection -> 1: sale, 0: no sale
 ).sort({edad: -1, nombre: 1})
