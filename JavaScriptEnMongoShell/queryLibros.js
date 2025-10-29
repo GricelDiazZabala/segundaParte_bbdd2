@@ -46,6 +46,7 @@ for (let i = 0; i < librosOrdenados.length; i++) {
   printjson(librosOrdenados[i]);
 }
 
+//este no anda
 print("\n--- Libro con más páginas por género ---");
 let genero = db.libros.aggregate([{$group : {_id : "$genero"}}]);
 let masPaginasArray = db.libros.aggregate([{$match : {genero : genero._id}},{$project : {titulo: 1,autor:1, paginas:1, genero:1,_id:0}},{$sort : {paginas : -1}},{$limit : 1}]).toArray();
