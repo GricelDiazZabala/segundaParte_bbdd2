@@ -16,7 +16,7 @@ Resolver usando .toArray()
 ================================================================
 */
 
-//load("JavaScriptEnMongoShell\insertLibros.js")
+load("insertLibros.js")
 
 print("--- Número Mínimo de Páginas ---");
 let arrayMin = db.libros.find().sort({ paginas: 1 }).limit(1).toArray();

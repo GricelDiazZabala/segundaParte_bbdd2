@@ -15,7 +15,7 @@ Resolver utilizando .hasNext() y .next()
 ================================================================
 */
 
-//load("JavaScriptEnMongoShell/queryEmpleados.js")
+load("insertEmpleados.js")
 
 print("--- Salario Mínimo ---");
 let salarioMin = db.empleados.find().sort({ salario: 1 }).limit(1);
