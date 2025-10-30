@@ -17,8 +17,6 @@ Resolver utilizando .hasNext() y .next()
 
 //load("JavaScriptEnMongoShell/queryEmpleados.js")
 
-//use EMPLEADOS
-
 print("--- Salario Mínimo ---");
 let salarioMin = db.empleados.find().sort({ salario: 1 }).limit(1);
 if (salarioMin.hasNext()) {

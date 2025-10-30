@@ -16,8 +16,6 @@ Resolver utilizando forEach()
 
 //load("JavaScriptEnMongoShell/insertProductos.js")
 
-//use PRODUCTOS
-
 print("--- Precio Mínimo ---");
 let precioMin = db.productos.aggregate([{$project : {nombre: 1,precio:1,_id:0}}, {$sort : {precio : 1}},{$limit : 1}]);
 precioMin.forEach(function(producto) {

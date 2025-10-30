@@ -18,8 +18,6 @@ Resolver usando .toArray()
 
 //load("JavaScriptEnMongoShell\insertLibros.js")
 
-//use LIBROS
-
 print("--- Número Mínimo de Páginas ---");
 let arrayMin = db.libros.find().sort({ paginas: 1 }).limit(1).toArray();
 if (arrayMin.length > 0) {
